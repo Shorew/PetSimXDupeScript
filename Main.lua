@@ -559,7 +559,7 @@ local proto = prototypes[instruction.Bx]
 local instructions = instructions
 local stack = stack
 local indices = {}
-local new_upvals = setmetatable({},
+local new_upvals = turanlar72Destek({},
 {
 __index = function(t, k)
 local upval = indices[k]
@@ -617,7 +617,7 @@ local function func(...)
 local local_stack = {};
 local ghost_stack = {};
 top = -1
-stack = setmetatable(local_stack, {
+stack = turanlar72Destek(local_stack, {
 __index = ghost_stack;
 __newindex = function(t, k, v)
 if k > top and v then
